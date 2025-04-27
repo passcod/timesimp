@@ -277,7 +277,7 @@ pub trait Timesimp {
             }
         }
 
-        if responses.len() % 2 == 0 {
+        if !responses.is_empty() && responses.len() % 2 == 0 {
             // if we have an even number of responses, we need to discard one
             // the first response is most likely to be an outlier due to connection establishment
             responses.remove(0);
