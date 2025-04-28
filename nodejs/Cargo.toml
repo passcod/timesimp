@@ -2,6 +2,7 @@
 edition = "2024"
 name = "timesimp-nodejs"
 version = "0.0.0"
+publish = false
 
 [lib]
 name = "timesimp_nodejs"

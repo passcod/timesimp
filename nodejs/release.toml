@@ -1,3 +1,2 @@
 tag-prefix = "nodejs-"
-release = false
 pre-release-hook = ["sh", "-c", "npm run build; npm version $NEW_VERSION; npm run prepublishOnly"]
