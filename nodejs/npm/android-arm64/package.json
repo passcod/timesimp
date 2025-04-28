@@ -3,7 +3,7 @@
   "repository": "https://github.com/passcod/timesimp",
   "author": "Félix Saparelli <felix@passcod.name>",
   "license": "MIT",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "os": [
     "android"
   ],
