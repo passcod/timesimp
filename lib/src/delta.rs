@@ -169,17 +169,33 @@ mod tests {
 
         let processed = Delta::new(response, arrive_time).unwrap();
 
-        assert!(
-            processed.latency > Duration::from_millis(9)
-                && processed.latency < Duration::from_millis(11),
-            "latency {:?}",
-            processed.latency
-        );
-        assert!(
-            processed.delta >= SignedDuration::from_micros(-100)
-                && processed.delta <= SignedDuration::from_micros(100),
-            "delta {:?}",
-            processed.delta
-        );
+        if cfg!(target_os = "linux") {
+            assert!(
+                processed.latency > Duration::from_millis(9)
+                    && processed.latency < Duration::from_millis(11),
+                "latency {:?}",
+                processed.latency
+            );
+            assert!(
+                processed.delta >= SignedDuration::from_micros(-100)
+                    && processed.delta <= SignedDuration::from_micros(100),
+                "delta {:?}",
+                processed.delta
+            );
+        } else {
+            // on Mac and windows the sleep timer is too rough and those precise intervals fail
+            assert!(
+                processed.latency > Duration::from_millis(1)
+                    && processed.latency < Duration::from_millis(100),
+                "latency {:?}",
+                processed.latency
+            );
+            assert!(
+                processed.delta >= SignedDuration::from_millis(-1)
+                    && processed.delta <= SignedDuration::from_millis(1),
+                "delta {:?}",
+                processed.delta
+            );
+        }
     }
 }
