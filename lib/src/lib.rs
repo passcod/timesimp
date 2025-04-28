@@ -273,7 +273,7 @@ pub trait Timesimp {
 
             if self.load_offset().await?.is_none() {
                 tracing::debug!(offset=?packet.delta, "no offset stored, storing initial delta");
-                let _ = self.store_offset(packet.delta).await?;
+                let _ = self.store_offset(packet.delta).await;
             }
         }
 
@@ -330,6 +330,6 @@ pub trait Timesimp {
 
         tracing::debug!(?offset, "storing calculated offset");
         self.store_offset(offset).await?;
-        return Ok(Some(offset));
+        Ok(Some(offset))
     }
 }
