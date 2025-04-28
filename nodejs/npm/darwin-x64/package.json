@@ -1,0 +1,20 @@
+{
+  "name": "@passcod/timesimp-darwin-x64",
+  "repository": "https://github.com/passcod/timesimp",
+  "author": "Félix Saparelli <felix@passcod.name>",
+  "license": "MIT",
+  "version": "0.0.12",
+  "os": [
+    "darwin"
+  ],
+  "cpu": [
+    "x64"
+  ],
+  "main": "timesimp.darwin-x64.node",
+  "files": [
+    "timesimp.darwin-x64.node"
+  ],
+  "engines": {
+    "node": ">= 10"
+  }
+}

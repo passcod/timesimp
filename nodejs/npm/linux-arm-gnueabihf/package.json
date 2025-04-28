@@ -1,0 +1,20 @@
+{
+  "name": "@passcod/timesimp-linux-arm-gnueabihf",
+  "repository": "https://github.com/passcod/timesimp",
+  "author": "Félix Saparelli <felix@passcod.name>",
+  "license": "MIT",
+  "version": "0.0.12",
+  "os": [
+    "linux"
+  ],
+  "cpu": [
+    "arm"
+  ],
+  "main": "timesimp.linux-arm-gnueabihf.node",
+  "files": [
+    "timesimp.linux-arm-gnueabihf.node"
+  ],
+  "engines": {
+    "node": ">= 10"
+  }
+}

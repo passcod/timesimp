@@ -1,0 +1,23 @@
+{
+  "name": "@passcod/timesimp-linux-x64-musl",
+  "repository": "https://github.com/passcod/timesimp",
+  "author": "Félix Saparelli <felix@passcod.name>",
+  "license": "MIT",
+  "version": "0.0.12",
+  "os": [
+    "linux"
+  ],
+  "cpu": [
+    "x64"
+  ],
+  "main": "timesimp.linux-x64-musl.node",
+  "files": [
+    "timesimp.linux-x64-musl.node"
+  ],
+  "engines": {
+    "node": ">= 10"
+  },
+  "libc": [
+    "musl"
+  ]
+}

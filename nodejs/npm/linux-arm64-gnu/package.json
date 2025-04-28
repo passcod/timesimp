@@ -1,0 +1,23 @@
+{
+  "name": "@passcod/timesimp-linux-arm64-gnu",
+  "repository": "https://github.com/passcod/timesimp",
+  "author": "Félix Saparelli <felix@passcod.name>",
+  "license": "MIT",
+  "version": "0.0.12",
+  "os": [
+    "linux"
+  ],
+  "cpu": [
+    "arm64"
+  ],
+  "main": "timesimp.linux-arm64-gnu.node",
+  "files": [
+    "timesimp.linux-arm64-gnu.node"
+  ],
+  "engines": {
+    "node": ">= 10"
+  },
+  "libc": [
+    "glibc"
+  ]
+}

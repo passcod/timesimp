@@ -16,8 +16,7 @@ different from the return trip time, then an error is induced equal to the
 value of the difference in trip times.
 
 This library provides a sans-io implementation: you bring in your transport and
-storage, you get time offsets. There's the core Rust crate, a CLI that works
-over HTTP, and bindings for Node.js and Python.
+storage, you get time offsets. There's the core Rust crate and Node.js bindings.
 
 [paper]: https://web.archive.org/web/20160310125700/http://mine-control.com/zack/timesync/timesync.html
 
@@ -38,19 +37,3 @@ over HTTP, and bindings for Node.js and Python.
 
 [lib-node]: https://www.npmjs.com/package/timesimp
 [docs-node]: https://passcod.github.io/timesimp/js/
-
-### Python
-
-- [PyPI][lib-python]
-- [API Docs][docs-python]
-
-[lib-python]: https://pypi.org/timesimp
-[docs-python]: https://todo.example.com
-
-### CLI
-
-- [Crate][cli]
-- [Docs][docs-cli]
-
-[cli]: https://lib.rs/crate/timesimp-cli
-[docs-cli]: https://github.com/passcod/timesimp/blob/main/cli/README.md

@@ -1,0 +1,20 @@
+{
+  "name": "@passcod/timesimp-android-arm-eabi",
+  "repository": "https://github.com/passcod/timesimp",
+  "author": "Félix Saparelli <felix@passcod.name>",
+  "license": "MIT",
+  "version": "0.0.12",
+  "os": [
+    "android"
+  ],
+  "cpu": [
+    "arm"
+  ],
+  "main": "timesimp.android-arm-eabi.node",
+  "files": [
+    "timesimp.android-arm-eabi.node"
+  ],
+  "engines": {
+    "node": ">= 10"
+  }
+}

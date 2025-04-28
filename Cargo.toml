@@ -1,6 +1,6 @@
 [workspace]
 resolver = "3"
-members = ["lib", "nodejs", "python"]
+members = ["lib", "nodejs"]
 
 [profile.release]
 lto = false

@@ -1,0 +1,20 @@
+{
+  "name": "@passcod/timesimp-win32-x64-msvc",
+  "repository": "https://github.com/passcod/timesimp",
+  "author": "Félix Saparelli <felix@passcod.name>",
+  "license": "MIT",
+  "version": "0.0.12",
+  "os": [
+    "win32"
+  ],
+  "cpu": [
+    "x64"
+  ],
+  "main": "timesimp.win32-x64-msvc.node",
+  "files": [
+    "timesimp.win32-x64-msvc.node"
+  ],
+  "engines": {
+    "node": ">= 10"
+  }
+}

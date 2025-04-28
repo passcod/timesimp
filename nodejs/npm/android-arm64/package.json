@@ -1,0 +1,20 @@
+{
+  "name": "@passcod/timesimp-android-arm64",
+  "repository": "https://github.com/passcod/timesimp",
+  "author": "Félix Saparelli <felix@passcod.name>",
+  "license": "MIT",
+  "version": "0.0.12",
+  "os": [
+    "android"
+  ],
+  "cpu": [
+    "arm64"
+  ],
+  "main": "timesimp.android-arm64.node",
+  "files": [
+    "timesimp.android-arm64.node"
+  ],
+  "engines": {
+    "node": ">= 10"
+  }
+}
