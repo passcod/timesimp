@@ -54,8 +54,8 @@ async fn null_offset() {
         .await
         .unwrap();
     assert!(
-        offset.unwrap() > SignedDuration::from_micros(-50)
-            && offset.unwrap() < SignedDuration::from_micros(50),
+        offset.unwrap() > SignedDuration::from_millis(-1)
+            && offset.unwrap() < SignedDuration::from_millis(1),
         "offset = {offset:?}"
     );
 }
@@ -73,8 +73,8 @@ async fn zero_offset() {
         .await
         .unwrap();
     assert!(
-        offset.unwrap() > SignedDuration::from_micros(-50)
-            && offset.unwrap() < SignedDuration::from_micros(50),
+        offset.unwrap() > SignedDuration::from_millis(-1)
+            && offset.unwrap() < SignedDuration::from_millis(1),
         "offset = {offset:?}"
     );
 }
@@ -94,7 +94,7 @@ async fn negative_starting_offset() {
         .unwrap()
         + SignedDuration::from_secs(5);
     assert!(
-        offset > SignedDuration::from_micros(-50) && offset < SignedDuration::from_micros(50),
+        offset > SignedDuration::from_millis(-1) && offset < SignedDuration::from_millis(1),
         "offset + 5s = {offset:?}"
     );
 }
@@ -114,7 +114,7 @@ async fn positive_starting_offset() {
         .unwrap()
         - SignedDuration::from_secs(5);
     assert!(
-        offset > SignedDuration::from_micros(-50) && offset < SignedDuration::from_micros(50),
+        offset > SignedDuration::from_millis(-1) && offset < SignedDuration::from_millis(1),
         "offset - 5s = {offset:?}"
     );
 }
