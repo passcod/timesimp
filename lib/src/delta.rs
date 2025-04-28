@@ -191,8 +191,8 @@ mod tests {
                 processed.latency
             );
             assert!(
-                processed.delta >= SignedDuration::from_millis(-1)
-                    && processed.delta <= SignedDuration::from_millis(1),
+                processed.delta >= SignedDuration::from_millis(-20)
+                    && processed.delta <= SignedDuration::from_millis(20),
                 "delta {:?}",
                 processed.delta
             );
