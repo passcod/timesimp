@@ -10,7 +10,28 @@ export interface Settings {
   /** The maximum amount of time in microseconds between taking two samples. */
   jitter?: number
 }
-/** TODO. */
+/**
+ * Simple sans-io timesync client and server.
+ *
+ * Timesimp is based on the averaging method described in [Simpson (2002), A Stream-based Time
+ * Synchronization Technique For Networked Computer Games][paper], but with a corrected delta
+ * calculation. Compared to NTP, it's a simpler and less accurate time synchronisation algorithm
+ * that is usable over network streams, rather than datagrams. Simpson asserts they were able to
+ * achieve accuracies of 100ms or better, which is sufficient in many cases; my testing gets
+ * accuracies well below 5ms. The main limitation of the algorithm is that round-trip-time is
+ * assumed to be symmetric: if the forward trip time is different from the return trip time, then
+ * an error is induced equal to the value of the difference in trip times.
+ *
+ * This library provides a sans-io implementation: you bring in your transport and your storage;
+ * timesimp gives you time offsets. Internally, timesimp is implemented in Rust.
+ *
+ * If the local clock goes backward during a synchronisation, the invalid delta is discarded; this
+ * may cause the sync attempt to fail, especially if the `samples` count is lowered to its minimum
+ * of 3. This is a deliberate design decision: you should handle failure and retry, and the sync
+ * will proceed correctly when the clock is stable.
+ *
+ * [paper]: https://web.archive.org/web/20160310125700/http://mine-control.com/zack/timesync/timesync.html
+ */
 export declare class Timesimp {
   /**
    * Create a new timesimp instance.
