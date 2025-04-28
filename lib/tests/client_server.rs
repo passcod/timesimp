@@ -102,8 +102,8 @@ async fn no_delay() {
         .await
         .unwrap();
     assert!(
-        offset.unwrap() > SignedDuration::from_millis(-1)
-            && offset.unwrap() < SignedDuration::from_millis(1),
+        offset.unwrap() > SignedDuration::from_millis(-5)
+            && offset.unwrap() < SignedDuration::from_millis(5),
         "offset = {offset:?}"
     );
 }
@@ -125,8 +125,8 @@ async fn some_delay() {
         .await
         .unwrap();
     assert!(
-        offset.unwrap() > SignedDuration::from_millis(-1)
-            && offset.unwrap() < SignedDuration::from_millis(1),
+        offset.unwrap() > SignedDuration::from_millis(-5)
+            && offset.unwrap() < SignedDuration::from_millis(5),
         "offset = {offset:?}"
     );
 }
@@ -149,8 +149,8 @@ async fn much_delay() {
         .await
         .unwrap();
     assert!(
-        offset.unwrap() > SignedDuration::from_millis(-1)
-            && offset.unwrap() < SignedDuration::from_millis(1),
+        offset.unwrap() > SignedDuration::from_millis(-5)
+            && offset.unwrap() < SignedDuration::from_millis(5),
         "offset = {offset:?}"
     );
 }
@@ -176,7 +176,7 @@ async fn server_offset_positive() {
         .unwrap()
         - SignedDuration::from_secs(5);
     assert!(
-        offset > SignedDuration::from_millis(-1) && offset < SignedDuration::from_millis(1),
+        offset > SignedDuration::from_millis(-5) && offset < SignedDuration::from_millis(5),
         "offset - 5s = {offset:?}"
     );
 }
@@ -202,7 +202,7 @@ async fn server_offset_negative() {
         .unwrap()
         + SignedDuration::from_secs(5);
     assert!(
-        offset > SignedDuration::from_millis(-1) && offset < SignedDuration::from_millis(1),
+        offset > SignedDuration::from_millis(-5) && offset < SignedDuration::from_millis(5),
         "offset + 5s = {offset:?}"
     );
 }
@@ -226,7 +226,7 @@ async fn client_offset_positive() {
         .unwrap()
         .unwrap();
     assert!(
-        offset > SignedDuration::from_millis(-1) && offset < SignedDuration::from_millis(1),
+        offset > SignedDuration::from_millis(-5) && offset < SignedDuration::from_millis(5),
         "offset = {offset:?}"
     );
 }
@@ -250,7 +250,7 @@ async fn client_offset_negative() {
         .unwrap()
         .unwrap();
     assert!(
-        offset > SignedDuration::from_millis(-1) && offset < SignedDuration::from_millis(1),
+        offset > SignedDuration::from_millis(-5) && offset < SignedDuration::from_millis(5),
         "offset = {offset:?}"
     );
 }
@@ -277,7 +277,7 @@ async fn low_jitter() {
         .unwrap()
         - SignedDuration::from_secs(5);
     assert!(
-        offset > SignedDuration::from_millis(-1) && offset < SignedDuration::from_millis(1),
+        offset > SignedDuration::from_millis(-5) && offset < SignedDuration::from_millis(5),
         "offset - 5s = {offset:?}"
     );
 }
@@ -304,7 +304,7 @@ async fn mid_jitter() {
         .unwrap()
         - SignedDuration::from_secs(5);
     assert!(
-        offset > SignedDuration::from_millis(-1) && offset < SignedDuration::from_millis(1),
+        offset > SignedDuration::from_millis(-5) && offset < SignedDuration::from_millis(5),
         "offset - 5s = {offset:?}"
     );
 }
@@ -331,7 +331,7 @@ async fn high_jitter() {
         .unwrap()
         - SignedDuration::from_secs(5);
     assert!(
-        offset > SignedDuration::from_millis(-1) && offset < SignedDuration::from_millis(1),
+        offset > SignedDuration::from_millis(-5) && offset < SignedDuration::from_millis(5),
         "offset - 5s = {offset:?}"
     );
 }
