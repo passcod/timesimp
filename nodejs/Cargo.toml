@@ -15,7 +15,7 @@ napi = { version = "2.12.2", default-features = false, features = [
 ] }
 napi-derive = "2.12.2"
 serde_json = "1.0.140"
-timesimp = { version = "0.0.1", path = "../lib" }
+timesimp = { version = "0.0.2", path = "../lib" }
 tokio = { version = "1.44.2", features = ["sync", "time"] }
 
 [build-dependencies]
