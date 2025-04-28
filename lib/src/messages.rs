@@ -55,7 +55,7 @@ impl TryFrom<&[u8]> for Request {
 /// A timesimp response.
 ///
 /// Serializes to the two timestamps, in microseconds, as 64-bit signed integers, in big endian.
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub struct Response {
     /// The client timestamp, identical to that in the request.
     pub client: Timestamp,
@@ -97,5 +97,45 @@ impl TryFrom<&[u8]> for Response {
 
     fn try_from(bytes: &[u8]) -> Result<Self, Self::Error> {
         Self::from_bytes(bytes[..16].try_into()?)
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use std::str::FromStr as _;
+
+    use super::*;
+
+    fn microround(ts: Timestamp) -> Timestamp {
+        let micros = ts.as_microsecond();
+        Timestamp::from_microsecond(micros).unwrap()
+    }
+
+    #[test]
+    fn round_trip_request() {
+        let request = Request {
+            client: microround(Timestamp::now()),
+        };
+        let bytes = request.to_bytes();
+        assert_eq!(request, Request::try_from(&bytes[..]).unwrap());
+    }
+
+    #[test]
+    fn round_trip_response() {
+        let response = Response {
+            client: microround(Timestamp::now()),
+            server: microround(Timestamp::now()),
+        };
+        let bytes = response.to_bytes();
+        assert_eq!(response, Response::try_from(&bytes[..]).unwrap());
+    }
+
+    #[test]
+    fn specific_requests() {
+        let request = Request {
+            client: microround(Timestamp::from_str("2025-04-28T03:11:00.564184Z").unwrap()),
+        };
+        let bytes = vec![0, 6, 51, 206, 8, 149, 148, 216];
+        assert_eq!(request, Request::try_from(&bytes[..]).unwrap());
     }
 }
