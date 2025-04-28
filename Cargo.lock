@@ -1398,7 +1398,7 @@ dependencies = [
 
 [[package]]
 name = "timesimp-nodejs"
-version = "1.0.0"
+version = "1.0.1"
 dependencies = [
  "napi",
  "napi-build",
