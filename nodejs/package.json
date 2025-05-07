@@ -31,7 +31,7 @@
     "typedoc": "^0.28.1"
   },
   "engines": {
-    "node": ">= 10"
+    "node": ">=20.3.0"
   },
   "scripts": {
     "artifacts": "napi artifacts",

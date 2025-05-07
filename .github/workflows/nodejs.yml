@@ -153,9 +153,9 @@ jobs:
           - host: windows-latest
             target: x86_64-pc-windows-msvc
         node:
-          - "18"
           - "20"
           - "22"
+          - "24"
     runs-on: ${{ matrix.settings.host }}
     steps:
       - uses: actions/checkout@v4
@@ -195,9 +195,9 @@ jobs:
             platform: amd64
             os: ubuntu-latest
         node:
-          - "18"
           - "20"
           - "22"
+          - "24"
     runs-on: ${{ matrix.settings.os }}
     steps:
       - uses: actions/checkout@v4
