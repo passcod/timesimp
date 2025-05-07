@@ -1,6 +1,6 @@
 {
   "name": "timesimp",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Simple sans-io timesync client and server",
   "repository": "https://github.com/passcod/timesimp",
   "author": "Félix Saparelli <felix@passcod.name>",
@@ -44,19 +44,19 @@
     "version": "napi version"
   },
   "optionalDependencies": {
-    "@passcod/timesimp-win32-x64-msvc": "1.0.2",
-    "@passcod/timesimp-darwin-x64": "1.0.2",
-    "@passcod/timesimp-linux-x64-gnu": "1.0.2",
-    "@passcod/timesimp-darwin-arm64": "1.0.2",
-    "@passcod/timesimp-android-arm64": "1.0.2",
-    "@passcod/timesimp-linux-arm64-gnu": "1.0.2",
-    "@passcod/timesimp-linux-arm64-musl": "1.0.2",
-    "@passcod/timesimp-win32-arm64-msvc": "1.0.2",
-    "@passcod/timesimp-linux-arm-gnueabihf": "1.0.2",
-    "@passcod/timesimp-linux-arm-musleabihf": "1.0.2",
-    "@passcod/timesimp-linux-x64-musl": "1.0.2",
-    "@passcod/timesimp-android-arm-eabi": "1.0.2",
-    "@passcod/timesimp-darwin-universal": "1.0.2",
-    "@passcod/timesimp-linux-riscv64-gnu": "1.0.2"
+    "@passcod/timesimp-win32-x64-msvc": "1.0.3",
+    "@passcod/timesimp-darwin-x64": "1.0.3",
+    "@passcod/timesimp-linux-x64-gnu": "1.0.3",
+    "@passcod/timesimp-darwin-arm64": "1.0.3",
+    "@passcod/timesimp-android-arm64": "1.0.3",
+    "@passcod/timesimp-linux-arm64-gnu": "1.0.3",
+    "@passcod/timesimp-linux-arm64-musl": "1.0.3",
+    "@passcod/timesimp-win32-arm64-msvc": "1.0.3",
+    "@passcod/timesimp-linux-arm-gnueabihf": "1.0.3",
+    "@passcod/timesimp-linux-arm-musleabihf": "1.0.3",
+    "@passcod/timesimp-linux-x64-musl": "1.0.3",
+    "@passcod/timesimp-android-arm-eabi": "1.0.3",
+    "@passcod/timesimp-darwin-universal": "1.0.3",
+    "@passcod/timesimp-linux-riscv64-gnu": "1.0.3"
   }
 }
