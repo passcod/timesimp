@@ -9,15 +9,15 @@ name = "timesimp_nodejs"
 crate-type = ["cdylib"]
 
 [dependencies]
-napi = { version = "2.12.2", default-features = false, features = [
+napi = { version = "=3.0.0-alpha.33", default-features = false, features = [
     "async",
-    "napi4",
+    "napi9",
     "tokio_rt",
 ] }
-napi-derive = "2.12.2"
+napi-derive = "=3.0.0-alpha.29"
 serde_json = "1.0.140"
 timesimp = { version = "1.0.0", path = "../lib" }
 tokio = { version = "1.44.2", features = ["sync", "time"] }
 
 [build-dependencies]
-napi-build = "2.0.1"
+napi-build = "2.1.3"

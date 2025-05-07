@@ -2,7 +2,7 @@ use std::{fmt, sync::Arc, time::Duration};
 
 use napi::{
     bindgen_prelude::*,
-    threadsafe_function::{ErrorStrategy, ThreadsafeFunction},
+    threadsafe_function::{ThreadsafeFunction},
 };
 use napi_derive::*;
 use timesimp::{Request, Response, SignedDuration, Timesimp as _};
@@ -32,10 +32,13 @@ use tokio::sync::Mutex;
 #[derive(Debug, Clone)]
 pub struct Timesimp(Arc<Mutex<TimesimpImpl>>);
 
+type LoadFn = ThreadsafeFunction<(), Promise<Option<i64>>, (), true, true>;
+type StoreFn = ThreadsafeFunction<(i64,), Promise<()>, (i64,), true, true>;
+type QueryFn = ThreadsafeFunction<(Buffer,), Promise<Buffer>, (Buffer,),  true, true>;
 pub struct TimesimpImpl {
-    load: ThreadsafeFunction<(), ErrorStrategy::CalleeHandled>,
-    store: ThreadsafeFunction<(i64,), ErrorStrategy::CalleeHandled>,
-    query: ThreadsafeFunction<(Buffer,), ErrorStrategy::CalleeHandled>,
+    load: LoadFn,
+    store: StoreFn,
+    query: QueryFn,
 }
 
 impl fmt::Debug for TimesimpImpl {
@@ -61,7 +64,7 @@ impl timesimp::Timesimp for TimesimpImpl {
     async fn load_offset(&self) -> Result<Option<SignedDuration>> {
         Ok(self
             .load
-            .call_async::<Promise<Option<i64>>>(Ok(()))
+            .call_async(Ok(()))
             .await
             .map_err(add_context("load_offset", line!()))?
             .await
@@ -71,7 +74,7 @@ impl timesimp::Timesimp for TimesimpImpl {
 
     async fn store_offset(&mut self, offset: SignedDuration) -> Result<()> {
         self.store
-            .call_async::<Promise<()>>(Ok((offset.as_micros() as i64,)))
+            .call_async(Ok((offset.as_micros() as i64,)))
             .await
             .map_err(add_context("store_offset", line!()))?
             .await
@@ -82,7 +85,7 @@ impl timesimp::Timesimp for TimesimpImpl {
         let buf = Buffer::from(request.to_bytes().to_vec());
         let res = self
             .query
-            .call_async::<Promise<Buffer>>(Ok((buf,)))
+            .call_async(Ok((buf,)))
             .await
             .map_err(add_context("query_server", line!()))?
             .await
@@ -139,9 +142,9 @@ impl Timesimp {
         ts_args_type = "load: (err: Error) => Promise<number | null>, store: (err: Error, offset: number) => Promise<void>, query: (err: Error, request: Buffer) => Promise<Buffer>"
     )]
     pub fn new(
-        load: ThreadsafeFunction<(), ErrorStrategy::CalleeHandled>,
-        store: ThreadsafeFunction<(i64,), ErrorStrategy::CalleeHandled>,
-        query: ThreadsafeFunction<(Buffer,), ErrorStrategy::CalleeHandled>,
+        load: LoadFn,
+        store: StoreFn,
+        query: QueryFn,
     ) -> Self {
         Self(Arc::new(Mutex::new(TimesimpImpl { load, store, query })))
     }
